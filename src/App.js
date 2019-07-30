@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  state = {
+    wordCount: 0
+  };
+
+  onInputChangeHandler = (event) => {
+    const text = event.target.value;
+    this.setState({wordCount: text.length})
+  };
+
   render() {
     return (
       <div className="App">
+        <input type="text" onChange={this.onInputChangeHandler}/>
+        <p>{this.state.wordCount}</p>
         <ol>
           <li>Create an input field (in App component) with a change listener which outputs the length of the entered text below it (e.g. in a paragraph).</li>
           <li>Create a new component (=> ValidationComponent) which receives the text length as a prop</li>
